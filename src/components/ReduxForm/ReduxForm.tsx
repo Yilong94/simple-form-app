@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
-import { fetchUser } from "../redux/actions";
+import { fetchUser } from "../../redux/actions";
 
 const initialValues = {
   reduxFormName: "Tan Yi Long",

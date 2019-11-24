@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Provider } from "react-redux";
 
-import SimpleForm from "./SimpleForm";
-import Counter from "./Counter";
-import ReduxForm from "./ReduxForm";
+import SimpleForm from "./components/SimpleForm";
+import PaymentForm from "./components/PaymentForm";
+import Counter from "./components/Counter";
+import ReduxForm from "./components/ReduxForm";
 import store from "./redux/store";
 import "./App.css";
 
 // TODO: create a simple react form ---(DONE)
+// TODO: add useEffect to call simple API when React DOM mounts ---(DONE)
+// TODO: play around with other custom hooks to get familiar
 // TODO: state management using react redux ---(DONE)
 // TODO: create a simple redux form ---(DONE)
 // TODO: initialize values in the form with API call using redux-thunk ---(DONE)
-// TODO: Form styling with layout
+// TODO: CSS styling of HTML forms
 // • sub-TODO: CSS styling with containers/rows/columns
 
 const url = "https://jsonplaceholder.typicode.com/users/1";
@@ -32,7 +35,7 @@ const App: React.FC = () => {
     name: "",
     emailAddress: ""
   });
-  // TODO: add useEffect to call simple API when React DOM mounts ---(DONE)
+
   useEffect(() => {
     getUser().then(
       res => {
@@ -48,7 +51,6 @@ const App: React.FC = () => {
       }
     );
   }, []);
-  // TODO: play around with other custom hooks to get familiar
 
   const handleSubmit = (credentials: any) => {
     setDisplayUserInfo({ ...displayUserInfo, ...credentials });
@@ -66,6 +68,8 @@ const App: React.FC = () => {
       <p>My email address: {displayUserInfo.emailAddress}</p>
       <p>My username: {displayUserInfo.username}</p>
       <p>My password: {displayUserInfo.password}</p>
+
+      <PaymentForm />
 
       <h1>Increment Counter with React-Redux</h1>
       <Counter />

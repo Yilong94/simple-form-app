@@ -1,0 +1,36 @@
+.simple-form {
+  margin: 0 auto;
+  width: 400px;
+  padding: 1em;
+  border: 2px solid #ccc;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.simple-form div + div {
+  margin-top: 1em;
+}
+
+.simple-form label {
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+}
+
+.simple-form input:not([type="submit"]) {
+  font: 1em san-serif;
+  width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #999;
+  float: right;
+}
+
+.simple-form input:focus {
+  background-color: aquamarine;
+}
+
+.simple-form input[type="submit"] {
+  margin-top: 2em;
+  float: right;
+  clear: both;
+}
