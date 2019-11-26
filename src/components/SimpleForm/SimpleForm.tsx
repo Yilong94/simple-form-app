@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import "./SimpleForm.css";
 
-const nullCredentials = { username: "", password: "" };
+const nullCredentials = { username: "", password: "", contact: 90268432 };
 
 const SimpleForm = ({ onSubmit }: { onSubmit: any }) => {
   const [credentials, setCredentials] = useState(nullCredentials);
@@ -34,6 +34,7 @@ const SimpleForm = ({ onSubmit }: { onSubmit: any }) => {
             value={credentials.username}
             placeholder="Input username"
             onChange={handleChange}
+            autoFocus={true}
           />
         </div>
         <div>
@@ -45,6 +46,18 @@ const SimpleForm = ({ onSubmit }: { onSubmit: any }) => {
             placeholder="Input password"
             type="password"
             onChange={handleChange}
+            // disabled={true}
+          />
+        </div>
+        <div>
+          <label htmlFor="contact">Contact No.:</label>
+          <input
+            name="contact"
+            id="contact"
+            value={credentials.contact}
+            placeholder="Input contact"
+            onChange={handleChange}
+            readOnly={true}
           />
         </div>
         <input type="submit" value="Submit" />

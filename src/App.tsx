@@ -7,8 +7,10 @@ import Counter from "./components/Counter";
 import ReduxForm from "./components/ReduxForm";
 import store from "./redux/store";
 import "./App.css";
+import FormWidgets from "./components/FormWidgets";
 
 // TODO: create a simple react form ---(DONE)
+// TODO: learn about basic html form
 // TODO: add useEffect to call simple API when React DOM mounts ---(DONE)
 // TODO: play around with other custom hooks to get familiar
 // TODO: state management using react redux ---(DONE)
@@ -70,6 +72,8 @@ const App: React.FC = () => {
       <p>My password: {displayUserInfo.password}</p>
 
       <PaymentForm />
+
+      <FormWidgets />
 
       <h1>Increment Counter with React-Redux</h1>
       <Counter />
