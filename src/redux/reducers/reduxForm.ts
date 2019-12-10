@@ -1,7 +1,7 @@
 import { FETCH_USER, RECEIVE_USER } from "../actionTypes";
 
 const initialState = {
-  reduxFormName: "",
+  reduxName: "",
   reduxPhone: ""
 };
 
@@ -9,10 +9,9 @@ const reduxForm = (state = initialState, action: any) => {
   switch (action.type) {
     case RECEIVE_USER: {
       const { name, phone } = action.json;
-      console.log("ACTION", action);
       return {
         ...state,
-        reduxFormName: name,
+        reduxName: name,
         reduxPhone: phone
       };
     }

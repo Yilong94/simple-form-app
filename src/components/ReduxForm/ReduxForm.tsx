@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 import { fetchUser } from "../../redux/actions";
+import TextInput from "../TextInput";
+import { CustomProps } from "../TextInput/TextInput";
 
 const initialValues = {
-  reduxFormName: "Tan Yi Long",
+  reduxName: "Tan Yi Long",
   reduxPhone: "S9422715A"
 };
 
@@ -13,7 +15,7 @@ const mapDispatchToProps = {
 };
 
 const mapStateToProps = (state: any) => {
-  return { initialValues: state.reduxForm };
+  return { initialValues: state.tempReduxFormCache };
 };
 
 let ReduxForm: any = ({
@@ -25,15 +27,39 @@ let ReduxForm: any = ({
 }) => {
   useEffect(() => {
     fetchUser(1);
-    console.log("done");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // const reduxJokeProps: CustomProps = {
+  //   uselessprop: "this is a useless prop"
+  // };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="reduxFormName">Name</label>
-      <Field name="reduxFormName" component="input" type="text"></Field>
+      <label htmlFor="reduxName">Name</label>
+      <Field name="reduxName" component="input" type="text"></Field>
+      <br />
+
       <label htmlFor="reduxPhone">NRIC</label>
       <Field name="reduxPhone" component="input" type="text"></Field>
+      <br />
+
+      <label htmlFor="reduxJoke">Tell me a joke</label>
+      <Field
+        name="reduxJoke"
+        component={TextInput}
+        // uselessprop={"this is a uselessprop"}
+        onChange={(event: any, newValue) => {
+          // event.preventDefault();
+          console.log("custom onchange");
+        }}
+        onBlur={(event: any, newValue) => {
+          // event.preventDefault();
+          console.log("custom onblur");
+        }}
+      ></Field>
+      <br />
+
       <input type="submit" value="Submit" />
     </form>
   );
